@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Tag</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: royalblue;
+      }
+
+      .video-container {
+        position: relative;
+        width: 640px;
+        height: 360px;
+      }
+
+      video {
+        width: 100%;
+      }
+
+      .controls-container {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+
+      .controls-row {
+        width: 100%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .control-btn {
+        width: 38px;
+        height: 38px;
+
+        transition: all 0.2s;
+      }
+
+      .control-btn:hover {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+      }
+
+      #main-btn {
+        height: 70px;
+        width: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="video" src="./video.mp4"></video>
+      <div
+        class="controls-container"
+        onmouseenter="displayControllers()"
+        onmouseleave="hideControllers()"
+      >
+        <div class="controls-row">
+          <img
+            class="control-btn"
+            src="./assets/replay_10-white-48dp.svg"
+            alt="retroceder 10 segundos"
+            title="Retroceder"
+            onclick="rewind()"
+          />
+          <img
+            class="control-btn"
+            src="./assets/forward_10-white-48dp.svg"
+            alt="avançar 10 segundos"
+            title="Avançar"
+            onclick="forward()"
+          />
+          <img
+            src="./assets/remove-white-48dp.svg"
+            alt="diminuir velocidade de reprodução"
+            class="control-btn"
+            title="Diminuir velocidade"
+            onclick="speedDown()"
+          />
+          <img
+            src="./assets/play_arrow-white-48dp.svg"
+            alt="Reproduzir"
+            id="main-btn"
+            class="control-btn"
+            title="Reproduzir"
+          />
+          <img
+            src="./assets/add-white-48dp.svg"
+            alt="aumentar velocidade de reprodução"
+            class="control-btn"
+            title="Aumentar velocidade"
+            onclick="speedUp()"
+          />
+          <img
+            src="./assets/stop-white-48dp.svg"
+            alt="parar reprodução"
+            class="control-btn"
+            title="Parar"
+            onclick="stopVideo()"
+          />
+          <img
+            src="./assets/fullscreen-white-48dp.svg"
+            alt="Tela cheia"
+            id="fullscreen"
+            class="control-btn"
+            title="Maximizar"
+          />
+        </div>
+      </div>
+    </div>
+    <script src="./player.js"></script>
+  </body>
+</html>
